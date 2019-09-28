@@ -1,0 +1,36 @@
+{% load render_table from django_tables2 %}
+<!doctype html>
+<html>
+<head>
+    <title>List of persons</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div style="padding-left: 100px">
+    <h1>List of Doctors</h1>
+    <table>
+        <tr>
+            <th colspan="2">ID</th>
+            <th colspan="2">User_Name</th>
+            <th colspan="2">First_Name</th>
+            <th colspan="2">Mid_Name</th>
+            <th colspan="2">Last_Name</th>
+            <th colspan="2">Degree</th>
+        </tr>
+        {% for d in doctors %}
+            <tr>
+                <td colspan="2">{{ d.id }}</td>
+                <td colspan="2">{{ d.username }}</td>
+                <td colspan="2">{{ d.first_name }}</td>
+                <td colspan="2">{{ d.mid_name }}</td>
+                <td colspan="2">{{ d.last_name }}</td>
+                <td colspan="2">{{ d.degree }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+
+</body>
+</html>

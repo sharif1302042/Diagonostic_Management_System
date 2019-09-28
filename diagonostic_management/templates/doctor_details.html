@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block content %}
+    <div class="container">
+        <br>
+        <h1 style="text-align: center">Doctor Details</h1><br>
+
+        {% for doctor in doctor %}
+            <dl class="row">
+                <dt class="col-sm-2"></dt>
+                <dd class="col-sm-9">
+                    <div class="card" style="width: 10rem;">
+                        <img src="{% static 'images/photo.jpg' %}" class="d-block w-100" alt="photo">
+                    </div>
+                </dd>
+                <dt class="col-sm-2">User Name</dt>
+                <dd class="col-sm-10">{{ doctor.username }}</dd>
+
+                <dt class="col-sm-2">First Name</dt>
+                <dd class="col-sm-10">{{ doctor.first_name }}</dd>
+
+                <dt class="col-sm-2">Mid Name</dt>
+                <dd class="col-sm-10">{{ doctor.mid_name }}</dd>
+
+                <dt class="col-sm-2">Last Name</dt>
+                <dd class="col-sm-10">{{ doctor.last_name }}</dd>
+
+                <dt class="col-sm-2">Designation</dt>
+                <dd class="col-sm-10">{{ doctor.designation }}</dd>
+
+                <dt class="col-sm-2">Email</dt>
+                <dd class="col-sm-10">{{ doctor.email }}</dd>
+
+                <dt class="col-sm-2">Contact</dt>
+                <dd class="col-sm-10">{{ doctor.contact_number }}</dd>
+            </dl><br>
+            <hr>
+
+
+            <dl class="row">
+
+                <dt class="col-sm-6">
+                    <button type="submit" class="btn bg-warning">
+                        <a href="#" style="font-size: 2rem">Get Appoinment to Mr {{ doctor.username }} ?</a>
+                    </button>
+                </dt>
+            </dl><hr>
+
+            <dl class="row">
+
+                <br><br><br><br>
+                <dt class="col-sm-3">Want To Rate MR. {{ doctor.username }}</dt>
+                <dd class="col-sm-9">
+                    <form>
+                        <div class="form-group row">
+                            <label for="exampleFormControlSelect1" class="col-sm-3 col-form-label">Select Your
+                                Ratings</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="exampleFormControlTextarea1" class="col-sm-3 col-form-label">Rating
+                                Details</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                          placeholder="Please Write Something About Your Ratings"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Rating?</button>
+                    </form>
+
+                </dd>
+            </dl>
+            <br>
+            <hr>
+        {% endfor %}
+    </div>
+
+{% endblock %}
